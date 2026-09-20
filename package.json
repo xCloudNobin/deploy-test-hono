@@ -1,0 +1,31 @@
+{
+  "name": "deploy-test-hono",
+  "version": "1.0.0",
+  "description": "Native Hono taskboard fixture: Hono + Node adapter + better-sqlite3 persistence, validated CRUD/search/filter, liveness/readiness.",
+  "private": true,
+  "type": "module",
+  "main": "dist/src/index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "npm run build && node --watch dist/src/index.js",
+    "build": "bash scripts/build.sh",
+    "start": "node dist/src/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"dist/tests/*.test.js\"",
+    "smoke": "bash scripts/smoke.sh",
+    "verify": "bash scripts/verify.sh"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.1",
+    "better-sqlite3": "^13.0.3",
+    "hono": "^4.13.8"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.20.4",
+    "typescript": "^5.6.3"
+  }
+}
